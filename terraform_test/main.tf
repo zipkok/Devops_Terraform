@@ -44,3 +44,49 @@ resource "aws_security_group" "instance" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_launch_configuration" "example" {
+  name          = "aws_launch_configuration"
+  image_id      = "ami-00399ec92321828f5"
+  instance_type = "t2.micro"
+
+  security_groups = [aws_security_group.instance.id]
+
+  user_data = <<-EOF
+                #!/bin/bash
+                echo "Hello, world" > index.html
+                # nohup busybox httpd -f -p 8080 &
+                nohup busybox httpd -f -p ${var.server_port} &
+                EOF
+
+  # ASG 시작 구성 사용 시 필수
+  # terraform 기본 구조: 삭제 후 생성
+  # create_before_destory = true: 생성 후 삭제로 변경됨
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
+data "aws_vpc" "default" {
+  default = true
+}
+
+data "aws_subnet_ids" "default" {
+  vpc_id = data.aws_vpc.default.id
+}
+
+
+resource "aws_autoscaling_group" "example" {
+  launch_configuration = aws_launch_configuration.example.name
+  vpc_zone_identifier  = data.aws_subnet_ids.default.ids
+
+  min_size = 2
+  max_size = 10
+
+  tag {
+    key                 = "Name"
+    value               = "terraform-asg-example"
+    propagate_at_launch = true
+  }
+}
