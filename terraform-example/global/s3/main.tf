@@ -7,7 +7,7 @@ provider "aws" {
     # 생성한 버킷 이름으로 변경
     bucket = "woobeom-state"
     #key    = "global/s3/terraform.tfstate"
-    key    = "stage/services/webserver-cluster/terraform.tfstate"
+    key    = "global/s3/terraform.tfstate"
     region = "us-east-1"
 
     # 생성한 다이나모DB 테이블 이름으로 변경
