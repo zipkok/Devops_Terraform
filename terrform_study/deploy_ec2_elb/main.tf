@@ -54,7 +54,7 @@ resource "aws_lb_listener" "http" {
   default_action {
     type = "fixed-response"
 
-    fixed_reponse {
+    fixed_response {
       content_type = "text/plain"
       message_body = "404: page not found"
       status_code  = 404
@@ -65,7 +65,7 @@ resource "aws_lb_listener" "http" {
 # =========================================================
 # Step 3/4 of AWS ELB (Listener_rule)
 resource "aws_lb_listener_rule" "asg" {
-  listener_rule = aws_lb_listener.http.arn
+  listener_arn = aws_lb_listener.http.arn
   priority      = 100
 
   condition {
