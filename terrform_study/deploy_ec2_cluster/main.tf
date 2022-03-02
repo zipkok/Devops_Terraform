@@ -39,7 +39,7 @@ resource "aws_launch_configuration" "example" {
 # =========================================================
 # AWS AutoScale Group
 resource "aws_autoscaling_group" "example" {
-  aws_launch_configuration = aws_launch_configuration.example.name
+  launch_configuration = aws_launch_configuration.example.name
 
   min_size = 2
   max_size = 10
@@ -53,6 +53,3 @@ resource "aws_autoscaling_group" "example" {
   # SubnetID를 조회하여 ASG에 연결함.
   vpc_zone_identifier = data.aws_subnet_ids.default.ids
 }
-
-
-
