@@ -31,7 +31,7 @@ resource "aws_launch_configuration" "example" {
   # Terraform은 기본적으로 리소스 변경 시 삭제 후 생성을 함.
   # Launch_Template 변경 시 교체 리소스를 먼저 생성하고 기존 리소스를 삭제함.
   lifecycle {
-    create_before_destory = true
+    create_before_destroy = true
   }
 
 }
