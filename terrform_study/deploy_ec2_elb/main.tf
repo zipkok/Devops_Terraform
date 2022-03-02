@@ -38,7 +38,7 @@ resource "aws_security_group" "alb" {
 resource "aws_lb" "example" {
   name               = "terraform-asg-example"
   load_balancer_type = "application"
-  subnets            = data.aws_subnet_dis.default.ids
+  subnets            = data.aws_subnet_ids.default.ids
 
   security_groups = [aws_security_group.alb.id]
 }
@@ -95,7 +95,7 @@ resource "aws_lb_target_group" "asg" {
     matcher             = "200"
     interval            = 15
     timeout             = 3
-    healty_threshold    = 2
+    healthy_threshold    = 2
     unhealthy_threshold = 2
   }
 }
