@@ -1,4 +1,3 @@
 provider "aws" {
-    region = "ap-northeast-2"
-    aws = "~> 3.74"
+  region = "ap-northeast-2"
 }
