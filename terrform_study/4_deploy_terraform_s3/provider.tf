@@ -1,4 +1,7 @@
 provider "aws" {
   region = "ap-northeast-2"
-  aws    = "~> 3.74"
+}
+
+required_providers {
+  aws = "~> 3.74"
 }
