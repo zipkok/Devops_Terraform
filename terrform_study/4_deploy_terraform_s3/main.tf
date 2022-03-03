@@ -2,9 +2,9 @@ resource "aws_s3_bucket" "terraform_state" {
   bucket = "terraofmr-up-and-running-state"
 
   # 실수로 S3 버킷을 삭제하는 것을 방지
-  // lifecycle {
-  //   prevent_destroy = true
-  // }
+  lifecycle {
+    prevent_destroy = true
+  }
 
   # 코드 이력을 관리하기 위해 상태 파일의 버전 관리를 활성화
 // aws 모듈 버전을 업해야함. 기본 Enable로 바뀜
