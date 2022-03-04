@@ -1,7 +1,7 @@
 # =========================================================
 # Security Group 생성 (ASG)
 resource "aws_security_group" "instance" {
-  name = "terraform-example-instance"
+  name = var.instance_security_group_name
 
   ingress {
     from_port   = var.server_port
@@ -15,7 +15,7 @@ resource "aws_security_group" "instance" {
 # =========================================================
 # Security Group 생성 (ELB)
 resource "aws_security_group" "alb" {
-  name = "terraform-example-alb"
+  name = var.alb_security_group_name
 
   ingress {
     from_port   = 80
@@ -36,7 +36,7 @@ resource "aws_security_group" "alb" {
 # =========================================================
 # Step 1/4 of AWS ELB (ALB)
 resource "aws_lb" "example" {
-  name               = "terraform-asg-example"
+  name               = var.alb_name
   load_balancer_type = "application"
   subnets            = data.aws_subnet_ids.default.ids
 
