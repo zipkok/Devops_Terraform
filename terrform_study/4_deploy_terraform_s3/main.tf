@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "terraofmr-up-and-running-state"
+  bucket = "woobeom-up-and-running-state"
 
   # 실수로 S3 버킷을 삭제하는 것을 방지
   lifecycle {
@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 resource "aws_dynamodb_table" "terraform_locks" {
-  name         = "terraform-up-and-running-locks"
+  name         = "woobeom-up-and-running-locks"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
