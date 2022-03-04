@@ -9,6 +9,8 @@ data "aws_subnet_ids" "default" {
   vpc_id = data.aws_vpc.default.id
 }
 
+# template_file은 내장함수
+# var.<NAME> 이 아닌 <NAME>으로 사용 가능함.
 data "template_file" "user_data" {
   template = file("user-data.sh")
 
