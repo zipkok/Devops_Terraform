@@ -1,3 +1,4 @@
+// 오픈할 tfstate
 data "terraform_remote_state" "db" {
   backend = "s3"
   config = {
