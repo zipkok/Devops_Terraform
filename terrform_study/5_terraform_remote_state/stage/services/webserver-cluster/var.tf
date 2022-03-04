@@ -8,12 +8,14 @@
 variable "db_remote_state_bucket" {
   description = "The name of the S3 bucket used for the database's remote state storage"
   type        = string
+  default     = "woobeom-up-and-running-state"
 }
 
 # export TF_VAR_db_remote_state_key="stage/data-stores/mysql/terraform.tfstate"
 variable "db_remote_state_key" {
   description = "The name of the key in the S3 bucket used for the database's remote state storage"
   type        = string
+  value       = "stage/data-stores/mysql/terraform.tfstate"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
