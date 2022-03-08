@@ -25,8 +25,8 @@ variable "db_remote_state_key" {
 
 variable "db_address" {
   description = "Database Address"
-  type        = number
-  default     = 1.1.1.1
+  type        = string
+  default     = "1.1.1.1"
 }
 
 variable "db_port" {
