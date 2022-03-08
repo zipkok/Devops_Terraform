@@ -111,11 +111,7 @@ resource "aws_launch_configuration" "example" {
   # vpc_security_group_ids -> security_groups
   security_groups = [aws_security_group.instance.id]
 
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "Hello, World" > index.html
-              nohup busybox httpd -f -p ${var.server_port} &
-              EOF
+  user_data = data.template_file.user_data.rendered
 
   # Terraform은 기본적으로 리소스 변경 시 삭제 후 생성을 함.
   # Launch_Template 변경 시 교체 리소스를 먼저 생성하고 기존 리소스를 삭제함.
