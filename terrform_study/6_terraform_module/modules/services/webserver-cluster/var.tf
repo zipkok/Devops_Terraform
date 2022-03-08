@@ -23,18 +23,6 @@ variable "db_remote_state_key" {
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "db_address" {
-  description = "Database Address"
-  type        = string
-  default     = "1.1.1.1"
-}
-
-variable "db_port" {
-  description = "Database Port"
-  type        = number
-  default     = 3006
-}
-
 variable "server_port" {
   description = "The port the server will use for HTTP requests"
   type        = number
