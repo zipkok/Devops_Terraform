@@ -10,18 +10,19 @@ data "aws_subnet_ids" "default" {
 }
 
 // terraform_remote_state 읽기
-data "terraform_remote_state" "db" {
-  backend = "s3"
+// data "terraform_remote_state" "db" {
+//   backend = "s3"
 
-  config = {
-    bucket = var.db_remote_state_bucket
-    key    = var.db_remote_state_key
-    region = "ap-northeast-2"
-  }
-}
+//   config = {
+//     bucket = var.db_remote_state_bucket
+//     key    = var.db_remote_state_key
+//     region = "ap-northeast-2"
+//   }
+// }
 
 # template_file은 내장함수
 # var.<NAME> 이 아닌 <NAME>으로 사용 가능함.
+# 이번엔 사용하지 않음.
 // data "template_file" "user_data" {
 //   template = file("user-data.sh")
 
