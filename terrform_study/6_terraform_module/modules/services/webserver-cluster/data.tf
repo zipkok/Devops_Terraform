@@ -22,12 +22,12 @@ data "terraform_remote_state" "db" {
 
 # template_file은 내장함수
 # var.<NAME> 이 아닌 <NAME>으로 사용 가능함.
-data "template_file" "user_data" {
-  template = file("user-data.sh")
+// data "template_file" "user_data" {
+//   template = file("user-data.sh")
 
-  vars = {
-    server_port = var.server_port
-    db_address  = var.db_address
-    db_port     = var.db_port
-  }
-}
+//   vars = {
+//     server_port = var.server_port
+//     db_address  = var.db_address
+//     db_port     = var.db_port
+//   }
+// }
