@@ -4,7 +4,7 @@ output "alb_dns_name" {
 }
 
 output "asg_name" {
-  value       = module.frontend.asg_name
+  value       = aws_autoscaling_group.example.name
   description = "The name of the AUto Scaling Group"
 }
 
