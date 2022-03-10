@@ -1,21 +1,39 @@
+variable "instance_type" {
+  description = "The type of EC2 Instances to run (e.g. t2.micro)"
+  type        = string
+}
+
+variable "min_size" {
+  description = "The minimum numver of EC2 Instances in the ASG"
+  type        = number
+}
+
+variable "max_size" {
+  description = "The maximum numver of EC2 Instances in the ASG"
+  type        = number
+}
+
+
 # ---------------------------------------------------------------------------------------------------------------------
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
 
+variable "cluster_name" {
+  description = "The name of the S3 bucket used for the database's remote state storage"
+  type        = string
+}
 
 # export TF_VAR_db_remote_state_bucket="woobeom-up-and-running-state"
 variable "db_remote_state_bucket" {
   description = "The name of the S3 bucket used for the database's remote state storage"
   type        = string
-  default     = "woobeom-up-and-running-state"
 }
 
 # export TF_VAR_db_remote_state_key="stage/data-stores/mysql/terraform.tfstate"
 variable "db_remote_state_key" {
   description = "The name of the key in the S3 bucket used for the database's remote state storage"
   type        = string
-  default     = "stage/data-stores/mysql/terraform.tfstate"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
