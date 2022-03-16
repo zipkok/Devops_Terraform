@@ -1,3 +1,9 @@
+variable "custom_tags" {
+  description = "Custom tags to set on the Istances in the ASG"
+  type        = map(string)
+  default     = {}
+}
+
 variable "instance_type" {
   description = "The type of EC2 Instances to run (e.g. t2.micro)"
   type        = string
