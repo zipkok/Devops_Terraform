@@ -12,7 +12,8 @@ resource "aws_iam_user" "example" {
 variable "user_names" {
   description = "Create IAM users with these names"
   type        = list(string)
-  default     = ["neo", "trinity", "morpheus"]
+  //   default     = ["neo", "trinity", "morpheus"]
+  default = ["neo", "morpheus"]
 }
 
 # map 형식으로 반환됨.
@@ -22,8 +23,9 @@ output "iam_arn" {
 }
 
 # map에서 값만 반환하는 내장함수 values
+# list를 반환값으로 가짐
 output "all_arns" {
-    value = values(aws_iam_user.example)[*].arn
+  value = values(aws_iam_user.example)[*].arn
 }
 
 
