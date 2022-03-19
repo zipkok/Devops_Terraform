@@ -10,3 +10,7 @@ resource "aws_s3_bucket" "bucket" {
     Environment = "Dev"
   }
 }
+
+resource "aws_s3_bucket_public_access_block" "bucket_access" {
+  bucket = aws_s3_bucket.bucket.id
+}
