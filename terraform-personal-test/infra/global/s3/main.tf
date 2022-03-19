@@ -15,10 +15,10 @@ resource "aws_s3_bucket" "bucket" {
 resource "aws_s3_bucket_public_access_block" "bucket_access" {
   bucket = aws_s3_bucket.bucket.id
 
-  ignore_public_acls      = true
-  restrict_public_buckets = true
-  block_public_acls       = true
-  block_public_policy     = true
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+  block_public_acls       = false
+  block_public_policy     = false
 }
 
 resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
@@ -28,9 +28,12 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 
 data "aws_iam_policy_document" "allow_access_from_another_account" {
   statement {
-    principals {}
-    actions   = ["s3:*"]
-    resources = ["arn:aws:s3:::woobeom-test-bucket"]
+    principals {
+      type        = "AWS"
+      identifiers = ["123456789012"]
+    }
+    actions   = ["s3:ListAllMyBuckets"]
+    resources = ["arn:aws:s3:::*"]
     effect    = "Allow"
   }
 }
