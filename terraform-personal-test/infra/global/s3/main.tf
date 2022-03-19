@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "example" {
       identifiers = ["firehose.amazonaws.com"]
     }
     sid       = "UniqueSidOne"
-    actions   = ["s3:ListAllMyBuckets"]
+    actions   = ["s3:ListBucket"]
     resources = ["arn:aws:s3:::woobeom-test-bucket/*", "arn:aws:s3:::woobeom-test-bucket"]
     effect    = "Allow"
   }
