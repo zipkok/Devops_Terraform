@@ -28,9 +28,13 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 
 data "aws_iam_policy_document" "example" {
   statement {
+    // principals {
+    //   type        = "Service"
+    //   identifiers = ["firehose.amazonaws.com"]
+    // }
     principals {
-      type        = "Service"
-      identifiers = ["firehose.amazonaws.com"]
+      type        = "*"
+      identifiers = ["*"]
     }
     sid       = "UniqueSidOne"
     actions   = ["s3:ListBucket"]
