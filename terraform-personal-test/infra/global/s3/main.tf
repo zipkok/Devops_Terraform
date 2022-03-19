@@ -32,4 +32,9 @@ data "aws_iam_policy_document" "allow_access_from_another_account" {
     resources = ["arn:aws:s3:::*"]
     effect    = "Allow"
   }
+  statement {
+    actions   = ["s3:*"]
+    resources = [aws_s3_bucket.bucket.arn]
+    effect    = "Allow"
+  }
 }
