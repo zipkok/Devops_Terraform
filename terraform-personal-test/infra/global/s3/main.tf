@@ -34,7 +34,7 @@ data "aws_iam_policy_document" "allow_access_from_another_account" {
     }
     sid       = "UniqueSidOne"
     actions   = ["s3:ListAllMyBuckets"]
-    resources = ["arn:aws:s3:::woobeom-test-bucket/*"]
+    resources = ["arn:aws:s3:::woobeom-test-bucket/*", "arn:aws:s3:::woobeom-test-bucket"]
     effect    = "Allow"
   }
 }
