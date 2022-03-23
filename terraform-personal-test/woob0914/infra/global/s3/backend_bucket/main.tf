@@ -3,11 +3,11 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "backend_bucket" {
-  bucket = "terraform-woobeom-bucket"
+  bucket = "woobeom-terraform-bucket"
 }
 
 resource "aws_dynamodb_table" "backend_locks" {
-  name         = "terraform-woobeom-locks"
+  name         = "woobeom-terraform-locks"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
