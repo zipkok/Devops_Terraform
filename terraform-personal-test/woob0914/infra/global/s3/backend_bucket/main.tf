@@ -6,10 +6,6 @@ provider "aws" {
 
 resource "aws_s3_bucket" "backend_bucket" {
   bucket = "terraform-woobeom-bucket"
-  tags = {
-    Name        = "My bucket"
-    Environment = "Dev"
-  }
 }
 
 resource "aws_dynamodb_table" "backend_locks" {
