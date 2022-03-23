@@ -9,7 +9,6 @@ resource "aws_s3_bucket" "backend_bucket" {
   lifecycle {
     prevent_destroy = true
   }
-  
 }
 
 resource "aws_dynamodb_table" "backend_locks" {
