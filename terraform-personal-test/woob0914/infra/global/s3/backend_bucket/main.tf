@@ -1,5 +1,7 @@
 provider "aws" {
-  region = "ap-northeast-2"
+  region                  = "ap-northeast-2"
+  shared_credentials_file = "$HOME/.aws/credentials"
+  profile                 = "default"
 }
 
 resource "aws_s3_bucket" "backend_bucket" {
