@@ -5,6 +5,12 @@ resource "aws_s3_bucket" "backend_bucket" {
   lifecycle {
     prevent_destroy = true
   }
+
+  tags = {
+    Name        = "woobeom-terraform-bucket"
+    Environment = "Dev"
+    Description = "Terraform tfstate Bucket"
+  }
 }
 
 resource "aws_dynamodb_table" "backend_locks" {
