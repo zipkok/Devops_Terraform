@@ -10,10 +10,6 @@ resource "aws_s3_bucket" "backend_bucket" {
     Name        = "My bucket"
     Environment = "Dev"
   }
-
-  lifecycle {
-    prevent_destroy = true
-  }
 }
 
 resource "aws_dynamodb_table" "backend_locks" {
