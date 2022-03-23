@@ -1,6 +1,5 @@
 provider "aws" {
   region  = "ap-northeast-2"
-  version = "~> 4.0"
 }
 
 resource "aws_s3_bucket" "backend_bucket" {
