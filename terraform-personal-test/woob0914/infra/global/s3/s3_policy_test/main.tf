@@ -3,11 +3,15 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "bucket" {
-  bucket = "woobeom-test-bucket"
+  bucket = "woobeom-terraform-bucket"
 
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
+  }
+
+  lifecycle {
+    prevent_destroy = true
   }
 }
 
