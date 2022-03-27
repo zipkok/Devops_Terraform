@@ -13,8 +13,6 @@ module "frontend" {
 }
 
 module "sg_ingress" {
-  security_group_id = aws_security_group.frontend.id
-  type              = "ingress"
   ingress_rules = [
     {
       description = "ingress TEST"
@@ -32,8 +30,7 @@ module "sg_ingress" {
 }
 
 module "sg_egress" {
-  security_group_id = aws_security_group.frontend.id
-  type              = "egress"
+
   egress_rules = [
     {
       description = "egress TEST"
