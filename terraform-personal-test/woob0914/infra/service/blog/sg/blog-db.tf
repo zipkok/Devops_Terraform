@@ -8,7 +8,7 @@ resource "aws_security_group_rule" "test" {
   from_port         = 0
   to_port           = 0
   protocol          = "tcp"
-  security_group_id = output.blog_db
+  security_group_id = module.blog_db.security_group_id
 }
 
 module "blog_db" {
