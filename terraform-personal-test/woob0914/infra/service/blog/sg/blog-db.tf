@@ -38,7 +38,7 @@ module "blog-db" {
 
     },
     {
-      description = "egress TEST"
+      description = "egress"
       from_port   = 0
       to_port     = 0
       protocol    = "tcp"
