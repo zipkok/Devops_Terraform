@@ -7,7 +7,7 @@ resource "aws_security_group" "sg_forntend" {
   tags        = var.security_group_tags
 }
 
-resource "aws_security_group_rule" "allow_testing_inbound" {
+resource "aws_security_group_rule" "sg_forntend_ingress" {
   security_group_id = aws_security_group.sg_forntend.id
   type              = "ingress"
   count             = length(var.ingress_rules)
@@ -18,7 +18,7 @@ resource "aws_security_group_rule" "allow_testing_inbound" {
   cidr_blocks       = ["${var.ingress_rules[count.index].cidr_blocks}"]
 }
 
-resource "aws_security_group_rule" "allow_testing_inbound" {
+resource "aws_security_group_rule" "sg_forntend_egress" {
   security_group_id = aws_security_group.sg_forntend.id
   type              = "egress"
   count             = length(var.egress_rules)
