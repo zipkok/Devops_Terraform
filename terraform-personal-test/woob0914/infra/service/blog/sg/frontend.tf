@@ -1,13 +1,13 @@
-module "frontend" {
+module "blog-frontend" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
-    name        = "security_group_name"
+    name        = "blog_front_sg"
     description = "security_group_describe"
     vpc_id      = "vpc-0546f3f1c47f1f95e"
   }
 
   security_group_tags = {
-    Name    = "woobeom_test"
+    Name    = "blog_front_sg"
     Creator = "Woobeom"
   }
 
