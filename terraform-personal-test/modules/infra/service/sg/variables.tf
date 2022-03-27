@@ -30,6 +30,6 @@ variable "egress_rules" {
     to_port           = number
     protocol          = string
     cidr_blocks       = string
-    security_group_id = string
+    source_security_group_id = string
   }))
 }
