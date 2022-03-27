@@ -1,5 +1,5 @@
 output "blog_db" {
-  value       = module.blog_db.aws_security_group.security_group.id
+  value       = module.blog_db.security_group.id
   description = "Connect to the database at this endPoint"
 }
 
