@@ -1,4 +1,9 @@
-module "blog-db" {
+output "blog_db" {
+  value       = module.blog_db.aws_security_group.security_group.id
+  description = "Connect to the database at this endPoint"
+}
+
+module "blog_db" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
     name        = "blog_db_sg"
