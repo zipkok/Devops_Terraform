@@ -12,7 +12,7 @@ module "frontend" {
   }
 }
 
-resource "aws_security_group_rule" "sg_ingress" {
+module "sg_ingress" {
   security_group_id = aws_security_group.frontend.id
   type              = "ingress"
   ingress_rules = [
@@ -31,7 +31,7 @@ resource "aws_security_group_rule" "sg_ingress" {
   }]
 }
 
-resource "aws_security_group_rule" "sg_egress" {
+module "sg_egress" {
   security_group_id = aws_security_group.frontend.id
   type              = "egress"
   egress_rules = [
