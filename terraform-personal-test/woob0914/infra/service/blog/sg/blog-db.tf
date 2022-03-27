@@ -45,7 +45,3 @@ module "blog-db" {
       cidr_blocks = "0.0.0.0/0"
   }]
 }
-
-resource "aws_security_group" "blog-test" {
-
-}
