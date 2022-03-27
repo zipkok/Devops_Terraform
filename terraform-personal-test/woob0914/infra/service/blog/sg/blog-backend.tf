@@ -1,4 +1,3 @@
-
 module "blog-backend" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
