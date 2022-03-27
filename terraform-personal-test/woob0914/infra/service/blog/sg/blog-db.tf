@@ -4,11 +4,12 @@ output "blog_db" {
 }
 
 resource "aws_security_group_rule" "test" {
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "tcp"
-  security_group_id = module.blog_db.security_group_id
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 0
+  protocol                 = "tcp"
+  security_group_id        = module.blog_db.security_group_id
+  source_security_group_id = sg-0da40a67758e8612f
 }
 
 module "blog_db" {
