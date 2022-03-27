@@ -29,7 +29,7 @@ module "blog-frontend" {
 
   egress_rules = [
     {
-      description = "egress TEST"
+      description = "egress TESTs"
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
