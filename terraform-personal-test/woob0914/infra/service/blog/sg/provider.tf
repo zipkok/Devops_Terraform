@@ -14,3 +14,12 @@ terraform {
     encrypt        = true
   }
 }
+
+data "terraform_remote_state" "blog-backend" {
+  backend = "s3"
+  config = {
+    bucket = "woobeom-terraform-bucket"
+    key    = "woob0914/infra/service/blog/sg/terraform.tfstate"
+    region = "ap-northeast-2"
+  }
+}
