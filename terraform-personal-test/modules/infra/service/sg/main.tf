@@ -1,9 +1,9 @@
 # Module Resource 
 
 resource "aws_security_group" "sg_forntend" {
-  name        = "allow_tls"
-  description = var.security_group_config.description ;
-  vpc_id      = var.security_group_config.vpc_id ;
+  name        = var.security_group_config.name
+  description = var.security_group_config.description
+  vpc_id      = var.security_group_config.vpc_id
   tags        = var.security_group_tags
 }
 
