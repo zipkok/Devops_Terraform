@@ -3,6 +3,14 @@ output "blog_db" {
   description = "Connect to the database at this endPoint"
 }
 
+resource "aws_security_group_rule" "test" {
+  type              = "ingress"
+  from_port         = 0
+  to_port           = 0
+  protocol          = "tcp"
+  security_group_id = output.blog_db
+}
+
 module "blog_db" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
