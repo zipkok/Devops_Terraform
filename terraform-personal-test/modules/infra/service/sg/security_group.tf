@@ -16,7 +16,7 @@ resource "aws_security_group_rule" "sg_forntend_ingress" {
   to_port           = var.ingress_rules[count.index].to_port
   protocol          = var.ingress_rules[count.index].protocol
   cidr_blocks       = ["${var.ingress_rules[count.index].cidr_blocks}"]
-  source_security_group_id = var.ingress_rules[count.index].security_group_id
+  source_security_group_id = var.ingress_rules[count.index].source_security_group_id
 }
 
 resource "aws_security_group_rule" "sg_forntend_egress" {
@@ -28,5 +28,5 @@ resource "aws_security_group_rule" "sg_forntend_egress" {
   to_port           = var.egress_rules[count.index].to_port
   protocol          = var.egress_rules[count.index].protocol
   cidr_blocks       = ["${var.egress_rules[count.index].cidr_blocks}"]
-  source_security_group_id = var.egress_rules[count.index].security_group_id
+  source_security_group_id = var.egress_rules[count.index].source_security_group_id
 }
