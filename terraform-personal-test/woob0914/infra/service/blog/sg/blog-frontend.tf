@@ -52,9 +52,3 @@ module "blog-frontend" {
       cidr_blocks = "0.0.0.0/0"
   }]
 }
-
-resource "aws_security_group_rule" "security_group_ingress_rules" {
-  security_group_id        = module.aws_security_group.blog-frontend.id
-  type                     = "ingress"
-  source_security_group_id = "sg-0c6ec8b95fa83c03d"
-}
