@@ -13,19 +13,30 @@ module "blog-frontend" {
 
   ingress_rules = [
     {
-      description = "HTTP open"
-      from_port   = 80
-      to_port     = 80
-      protocol    = "tcp"
-      cidr_blocks = "0.0.0.0/0"
+      description       = "HTTP open"
+      from_port         = 80
+      to_port           = 80
+      protocol          = "tcp"
+      cidr_blocks       = "0.0.0.0/0"
+      security_group_id = ""
     },
     {
-      description = "HTTPS open"
-      from_port   = 443
-      to_port     = 443
-      protocol    = "tcp"
-      cidr_blocks = "0.0.0.0/0"
-  }]
+      description       = "HTTPS open"
+      from_port         = 443
+      to_port           = 443
+      protocol          = "tcp"
+      cidr_blocks       = "0.0.0.0/0"
+      security_group_id = ""
+    },
+    {
+      description       = "sg"
+      from_port         = ""
+      to_port           = ""
+      protocol          = ""
+      cidr_blocks       = ""
+      security_group_id = "sg-0c6ec8b95fa83c03d"
+    }
+  ]
 
   egress_rules = [
     {
