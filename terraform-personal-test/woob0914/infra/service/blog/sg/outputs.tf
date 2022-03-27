@@ -1,4 +1,4 @@
 output "address" {
-  value       = aws_security_group.module.blog-frontend
+  value       = module.blog-frontend.aws_security_group.security_group
   description = "Connect to the database at this endPoint"
 }
