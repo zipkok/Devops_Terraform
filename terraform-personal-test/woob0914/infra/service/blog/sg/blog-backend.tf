@@ -1,13 +1,14 @@
-module "blog-frontend" {
+
+module "blog-backend" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
-    name        = "blog_front_sg"
-    description = "security_group_describe"
+    name        = "blog_back_sg"
+    description = "security_group_describes"
     vpc_id      = "vpc-0546f3f1c47f1f95e"
   }
 
   security_group_tags = {
-    Name    = "blog_front_sg"
+    Name    = "blog_back_sg"
     Creator = "Woobeom"
   }
 
@@ -45,8 +46,3 @@ module "blog-frontend" {
       cidr_blocks = "0.0.0.0/0"
   }]
 }
-
-// resource "security_group_rules" "sg" {
-//   security_group_id = "data.terraform_remote_state.blog-backend.outputs."
-// }
-
