@@ -1,5 +1,5 @@
 module "frontend" {
-  source = "../../../../modules/infra/service/sg"
+  source = "../../../../../modules/infra/service/sg"
   security_group_config = {
     name        = "security_group_name"
     description = "security_group_설명"

@@ -11,7 +11,7 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     env:
-      working-directory: terraform-personal-test/woob0914/infra/global/s3/backend_bucket/    
+      working-directory: terraform-personal-test/woob0914/infra/service/blog/sg/
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
