@@ -16,6 +16,7 @@ module "blog_db" {
     Creator = "Woobeom"
   }
 
+
   ingress_rules = [
     {
       description = "HTTP open"
