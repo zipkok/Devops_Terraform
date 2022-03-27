@@ -10,9 +10,7 @@ module "frontend" {
     Name    = "우범 테스트"
     Creator = "우범"
   }
-}
 
-module "sg_ingress" {
   ingress_rules = [
     {
       description = "ingress TEST"
@@ -27,9 +25,6 @@ module "sg_ingress" {
       protocol    = "tcp"
       cidr_blocks = "0.0.0.0/0"
   }]
-}
-
-module "sg_egress" {
 
   egress_rules = [
     {
