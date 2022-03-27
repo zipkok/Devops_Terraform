@@ -13,48 +13,41 @@ module "blog-frontend" {
 
   ingress_rules = [
     {
-      description              = "HTTP open"
-      from_port                = 80
-      to_port                  = 80
-      protocol                 = "tcp"
-      cidr_blocks              = "0.0.0.0/0"
-      source_security_group_id = ""
+      description = "HTTP open"
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      cidr_blocks = "0.0.0.0/0"
     },
     {
-      description              = "HTTPS open"
-      from_port                = 443
-      to_port                  = 443
-      protocol                 = "tcp"
-      cidr_blocks              = "0.0.0.0/0"
-      source_security_group_id = ""
-    },
-    {
-      description              = "sg"
-      from_port                = ""
-      to_port                  = ""
-      protocol                 = ""
-      cidr_blocks              = ""
-      source_security_group_id = "sg-0c6ec8b95fa83c03d"
+      description = "HTTPS open"
+      from_port   = 443
+      to_port     = 443
+      protocol    = "tcp"
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
 
   egress_rules = [
     {
-      description              = "egress TESTs"
-      from_port                = 0
-      to_port                  = 0
-      protocol                 = "-1"
-      cidr_blocks              = "0.0.0.0/0"
-      source_security_group_id = ""
+      description = "egress TESTs"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = "0.0.0.0/0"
 
     },
     {
-      description              = "egress TEST"
-      from_port                = 0
-      to_port                  = 0
-      protocol                 = "tcp"
-      cidr_blocks              = "0.0.0.0/0"
-      source_security_group_id = ""
-
+      description = "egress TEST"
+      from_port   = 0
+      to_port     = 0
+      protocol    = "tcp"
+      cidr_blocks = "0.0.0.0/0"
   }]
+}
+
+resource "aws_security_group_rule" "security_group_ingress_rules" {
+  security_group_id        = aws_security_group.blog-frontend.id
+  type                     = "ingress"
+  source_security_group_id = "sg-0c6ec8b95fa83c03d"
 }

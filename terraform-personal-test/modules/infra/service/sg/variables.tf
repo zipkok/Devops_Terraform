@@ -14,22 +14,20 @@ variable "security_group_tags" {
 
 variable "ingress_rules" {
   type = list(object({
-    description       = string
-    from_port         = number
-    to_port           = number
-    protocol          = string
-    cidr_blocks       = string
-    security_group_id = string
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = string
   }))
 }
 
 variable "egress_rules" {
   type = list(object({
-    description       = string
-    from_port         = number
-    to_port           = number
-    protocol          = string
-    cidr_blocks       = string
-    source_security_group_id = string
+    description = string
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = string
   }))
 }
