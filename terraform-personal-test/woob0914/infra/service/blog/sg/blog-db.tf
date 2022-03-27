@@ -33,6 +33,7 @@ module "blog_db" {
     }
   ]
 
+
   egress_rules = [
     {
       description = "egress TESTs"
