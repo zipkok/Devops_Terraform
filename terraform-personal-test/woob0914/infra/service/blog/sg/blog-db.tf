@@ -47,11 +47,11 @@ module "blog-db" {
 }
 
 resource "aws_security_group_rule" "security_group_ingress_rules_test" {
-  security_group_id = module.blog-db.aws_security_group.security_group.id
-  type              = "egress"
-  security_groups   = ["sg-0330bb85335d5115a"]
-  description       = "egress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "tcp"
+  security_group_id        = module.blog-db.aws_security_group.security_group.id
+  type                     = "egress"
+  source_security_group_id = ["sg-0330bb85335d5115a"]
+  description              = "egress"
+  from_port                = 0
+  to_port                  = 0
+  protocol                 = "tcp"
 }
