@@ -2,13 +2,13 @@ module "frontend" {
   source = "../../../../../modules/infra/service/sg"
   security_group_config = {
     name        = "security_group_name"
-    description = "security_group_설명"
+    description = "security_group_describe"
     vpc_id      = "vpc-0546f3f1c47f1f95e"
   }
 
   security_group_tags = {
-    Name    = "우범 테스트"
-    Creator = "우범"
+    Name    = "woobeom_test"
+    Creator = "Woobeom"
   }
 
   ingress_rules = [
