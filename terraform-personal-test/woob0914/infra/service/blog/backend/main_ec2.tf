@@ -5,6 +5,11 @@ module "backendt_ec2" {
     ami                    = "ami-033a6a056910d1137"
     instance_type          = "t2.micro"
     volume_size            = 20
-    vpc_security_group_ids = ["${module.blog_backend.security_group_id}"]
+    vpc_security_group_ids = [module.blog_backend.security_group_id]
+  }
+
+  ec2_instance_tags = {
+    Name    = "Backend_EC2"
+    Creator = "Woobeom"
   }
 }
