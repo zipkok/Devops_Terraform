@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "backend_ingress" {
   from_port                = 0
   to_port                  = 0
   protocol                 = "tcp"
-  source_security_group_id = data.terraform_remote_state.outputs.blog_frontend
+  source_security_group_id = data.terraform_remote_state.blog_frontend.outputs.blog_frontend
 }
 
 module "blog_backend" {
