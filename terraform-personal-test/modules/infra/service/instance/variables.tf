@@ -1,11 +1,14 @@
 # Security Group module variables
 variable "ec2_instance_config" {
   type = object({
-    ami                    = string
-    instance_type          = string
-    volume_size            = number
-    vpc_security_group_ids = list
+    ami           = string
+    instance_type = string
+    volume_size   = number
   })
+}
+
+variable "vpc_security_group_ids" {
+  type = list
 }
 
 variable "ec2_instance_tags" {
