@@ -5,6 +5,7 @@ output "sg_id" {
 
 resource "aws_security_group_rule" "ingress_rule_1" {
   security_group_id        = module.blog_frontend.security_group_id
+  description              = "Backend_To_Frontend"
   type                     = "ingress"
   from_port                = 1025
   to_port                  = 65535
@@ -14,6 +15,7 @@ resource "aws_security_group_rule" "ingress_rule_1" {
 
 resource "aws_security_group_rule" "egress_rule_1" {
   security_group_id        = module.blog_frontend.security_group_id
+  description              = "Frontend_To_Backend"
   type                     = "egress"
   from_port                = 8080
   to_port                  = 8080
