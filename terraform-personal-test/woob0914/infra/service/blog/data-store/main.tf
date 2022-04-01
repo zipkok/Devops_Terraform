@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "ingress_rule_1" {
 }
 
 resource "aws_security_group_rule" "egress_rule_1" {
-  security_group_id        = module.blog_backend.security_group_id
+  security_group_id        = module.blog_db.security_group_id
   description              = "DB_To_Backend"
   type                     = "egress"
   from_port                = 1025
