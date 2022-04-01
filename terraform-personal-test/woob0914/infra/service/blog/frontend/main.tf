@@ -3,7 +3,7 @@ output "blog_frontend" {
   description = "Security Group ID"
 }
 
-resource "aws_security_group_rule" "backend_ingress" {
+resource "aws_security_group_rule" "blog_frontend" {
   security_group_id = module.blog_frontend.security_group_id
   type              = "ingress"
   from_port         = 80

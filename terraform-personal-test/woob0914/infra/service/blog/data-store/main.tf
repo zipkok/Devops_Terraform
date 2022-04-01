@@ -3,7 +3,7 @@ output "blog_db" {
   description = "Security Group ID"
 }
 
-resource "aws_security_group_rule" "test" {
+resource "aws_security_group_rule" "db_ingress" {
   type                     = "ingress"
   from_port                = 0
   to_port                  = 0
