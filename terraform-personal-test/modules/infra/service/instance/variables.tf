@@ -3,7 +3,7 @@ variable "ec2_instance_config" {
   type = object({
     ami           = string
     instance_type = string
-    volume_size   = number
+    volume_size   = string
   })
 }
 
