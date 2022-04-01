@@ -16,11 +16,11 @@ terraform {
 }
 
 # terraform_remote_state Open
-data "terraform_remote_state" "blog_db" {
-  backend = "s3"
-  config = {
-    bucket = "woobeom-terraform-bucket"
-    key    = "woob0914/infra/service/blog/data-store/terraform.tfstate"
-    region = "ap-northeast-2"
-  }
-}
+// data "terraform_remote_state" "blog_db" {
+//   backend = "s3"
+//   config = {
+//     bucket = "woobeom-terraform-bucket"
+//     key    = "woob0914/infra/service/blog/data-store/terraform.tfstate"
+//     region = "ap-northeast-2"
+//   }
+// }
