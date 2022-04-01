@@ -6,7 +6,7 @@ terraform {
   backend "s3" {
     # 이전에 생성한 Bucket 이름으로 변경
     bucket = "woobeom-terraform-bucket"
-    key    = "woob0914/infra/service/blog/sg/terraform.tfstate"
+    key    = "woob0914/infra/service/blog/backend/terraform.tfstate"
     region = "ap-northeast-2"
 
     # 이전에 생성한 DynamoDB 테이블 이름으로 변경
@@ -15,11 +15,11 @@ terraform {
   }
 }
 
-// data "terraform_remote_state" "blog-backend" {
-//   backend = "s3"
-//   config = {
-//     bucket = "woobeom-terraform-bucket"
-//     key    = "woob0914/infra/service/blog/sg/terraform.tfstate"
-//     region = "ap-northeast-2"
-//   }
-// }
+data "terraform_remote_state" "blog_backend" {
+  backend = "s3"
+  config = {
+    bucket = "woobeom-terraform-bucket"
+    key    = "woob0914/infra/service/blog/backend/terraform.tfstate"
+    region = "ap-northeast-2"
+  }
+}
