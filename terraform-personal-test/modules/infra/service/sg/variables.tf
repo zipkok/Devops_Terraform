@@ -1,5 +1,4 @@
 # Security Group module variables
-
 variable "security_group_config" {
   type = object({
     name        = string

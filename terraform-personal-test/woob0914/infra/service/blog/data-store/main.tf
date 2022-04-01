@@ -1,6 +1,6 @@
 output "blog_db" {
   value       = module.blog_db.security_group_id
-  description = "Connect to the database at this endPoint"
+  description = "Security Group ID"
 }
 
 resource "aws_security_group_rule" "test" {
@@ -9,11 +9,12 @@ resource "aws_security_group_rule" "test" {
   to_port                  = 0
   protocol                 = "tcp"
   security_group_id        = module.blog_db.security_group_id
-  source_security_group_id = "sg-0da40a67758e8612f"
+  source_security_group_id = "module.blog_backend.security_group_id"
 }
 
 module "blog_db" {
   source = "../../../../../modules/infra/service/sg"
+
   security_group_config = {
     name        = "blog_db_sg"
     description = "security_group_describe"
@@ -24,6 +25,4 @@ module "blog_db" {
     Name    = "blog_db_sg"
     Creator = "Woobeom"
   }
-
-
 }
