@@ -15,6 +15,7 @@ terraform {
   }
 }
 
+# terraform_remote_state Open
 data "terraform_remote_state" "blog_frontend" {
   backend = "s3"
   config = {
@@ -23,3 +24,4 @@ data "terraform_remote_state" "blog_frontend" {
     region = "ap-northeast-2"
   }
 }
+

@@ -15,6 +15,7 @@ terraform {
   }
 }
 
+# terraform_remote_state Open
 data "terraform_remote_state" "blog_db" {
   backend = "s3"
   config = {
