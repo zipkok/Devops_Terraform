@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "test" {
   to_port                  = 0
   protocol                 = "tcp"
   security_group_id        = module.blog_db.security_group_id
-  source_security_group_id = "module.blog_backend.security_group_id"
+  source_security_group_id = module.blog_backend.security_group_id
 }
 
 module "blog_db" {
