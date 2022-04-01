@@ -6,7 +6,7 @@ resource "aws_instance" "ec2" {
   tags                   = var.ec2_instance_tags
   monitoring             = true
 
-  root_block_device = {
+  root_block_device = [{
     volume_size = var.ec2_instance_config.volume_size
-  }
+  }]
 }
