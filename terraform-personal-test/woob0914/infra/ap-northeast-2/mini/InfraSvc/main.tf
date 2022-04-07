@@ -30,13 +30,8 @@ resource "aws_security_group_rule" "alb_egress_rule" {
 # AWS Instance =====================================================
 # ==================================================================
 resource "aws_network_interface" "infraSrv" {
-  subnet_id       = "subnet-0bb6b78a4fb764f01"
+  subnet_id       = element(tolist(data.aws_subnet_ids.default.ids), 0)
   security_groups = [aws_security_group.instance_sg.id]
-
-  // attachment {
-  //   instance     = aws_instance.infraSrv.id
-  //   device_index = 1
-  // }
 }
 
 resource "aws_instance" "infraSrv" {
@@ -71,4 +66,8 @@ data "aws_vpc" "default" {
 # ==================================================================
 data "aws_subnet_ids" "default" {
   vpc_id = data.aws_vpc.default.id
+}
+
+output "aws_subnet_ids" {
+  value = data.aws_subnet_ids.default.ids
 }
