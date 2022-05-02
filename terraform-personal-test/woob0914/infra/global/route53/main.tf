@@ -1,11 +1,3 @@
-data "woodoo-com-ids" {
-  name = "woodoo.com"
-}
-
-output "woodoo-com-ids" {
-  value = data.woodoo-com-ids.zone_id
-}
-
 resource "aws_route53_zone" "woodoo-com-public" {
   name    = "woodoo.com"
   comment = "woodoo.com"
