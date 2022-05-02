@@ -7,8 +7,20 @@ resource "aws_route53_zone" "woodoo-com-public" {
   }
 }
 
+data "aws_route53_zone" "woodoo-com" {
+  name = "woodoo.com"
+}
+
 output "woodoo-com-zone-id" {
   value = aws_route53_zone.woodoo-com-public.zone_id
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = data.aws_route53_zone.woodoo-com.zone_id
+  name    = "www.${data.aws_route53_zone.woodoo-com.name}"
+  type    = "A"
+  ttl     = "300"
+  records = ["10.0.0.1"]
 }
 
 // resource "aws_route53_record" "woodoo-com-NS" {
