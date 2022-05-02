@@ -1,10 +1,14 @@
 resource "aws_route53_zone" "woodoo-com-public" {
   name    = "woodoo.com"
   comment = "woodoo.com"
+
+  tags = {
+    Environment = "dev"
+  }
 }
 
 output "woodoo-com-zone-id" {
-  value = aws_route53_zone.zone_id
+  value = aws_route53_zone.woodoo-com-public.zone_id
 }
 
 // resource "aws_route53_record" "woodoo-com-NS" {
