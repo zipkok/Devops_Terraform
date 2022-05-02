@@ -3,6 +3,10 @@ resource "aws_route53_zone" "woodoo-com-public" {
   comment = "woodoo.com"
 }
 
+output "woodoo-com-zone-id" {
+  value = aws_route53_zone.id
+}
+
 // resource "aws_route53_record" "woodoo-com-NS" {
 //   zone_id = "Z01600326NB4NKLT8GZ4"
 //   name    = "woodoo.com"
