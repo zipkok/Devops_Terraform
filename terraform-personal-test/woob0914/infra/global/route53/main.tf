@@ -4,7 +4,7 @@ resource "aws_route53_zone" "woodoo-com-public" {
 }
 
 output "woodoo-com-zone-id" {
-  value = aws_route53_zone.id
+  value = aws_route53_zone.zone_id
 }
 
 // resource "aws_route53_record" "woodoo-com-NS" {
