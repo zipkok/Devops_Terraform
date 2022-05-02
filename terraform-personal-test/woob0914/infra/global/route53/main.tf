@@ -1,6 +1,9 @@
 data "woodoo-com-ids" {
-  zone_id = data.aws_route53_zone.woodoo-com-public.zone_id
+  name = "woodoo.com"
+}
 
+output "woodoo-com-ids" {
+  value = data.woodoo-com-ids.zone_id
 }
 
 resource "aws_route53_zone" "woodoo-com-public" {
