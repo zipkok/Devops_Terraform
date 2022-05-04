@@ -48,7 +48,7 @@ resource "aws_alb" "external-web-lb" {
   idle_timeout    = 60
   internal        = false
   name            = "external-web-lb"
-  security_groups = ["sg-0c2fcc58ef7165fd5"]
+  security_groups = ["sg-0fa0d3359fec65113"]
   subnets         = ["subnet-05a0afbf6beb61357", "subnet-095041c85bc79d384", "subnet-0bb6b78a4fb764f01", "subnet-0e13b6cc838741021"]
 
   enable_deletion_protection = false
@@ -63,7 +63,7 @@ resource "aws_alb" "internals-web-lb" {
   idle_timeout    = 60
   internal        = true
   name            = "internals-web-lb"
-  security_groups = ["sg-0c2fcc58ef7165fd5"]
+  security_groups = ["sg-0fc6def9315d80d7c"]
   subnets         = ["subnet-05a0afbf6beb61357", "subnet-095041c85bc79d384", "subnet-0bb6b78a4fb764f01", "subnet-0e13b6cc838741021"]
 
   enable_deletion_protection = false
