@@ -23,7 +23,7 @@ resource "aws_instance" "my-app1" {
 
 resource "aws_instance" "my-app2" {
   ami                         = "ami-0cbec04a61be382d9"
-  availability_zone           = "ap-northeast-2c"
+  availability_zone           = "ap-northeast-2a"
   ebs_optimized               = false
   instance_type               = "t2.micro"
   monitoring                  = false
