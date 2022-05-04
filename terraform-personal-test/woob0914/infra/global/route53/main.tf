@@ -83,7 +83,6 @@ resource "aws_route53_record" "test-woodoo-com-A" {
   type    = "A"
   records = ["6.6.6.6"]
   ttl     = "300"
-
 }
 
 resource "aws_route53_record" "weight1-woodoo-com-A" {
@@ -96,7 +95,6 @@ resource "aws_route53_record" "weight1-woodoo-com-A" {
     weight = 30
   }
   set_identifier = "weight-10"
-
 }
 
 resource "aws_route53_record" "weight2-woodoo-com-CNAME" {
