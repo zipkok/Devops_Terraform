@@ -1,4 +1,4 @@
-resource "aws_instance" "my-app" {
+resource "aws_instance" "my-app1" {
     ami                         = "ami-0cbec04a61be382d9"
     availability_zone           = "ap-northeast-2a"
     ebs_optimized               = false
@@ -21,7 +21,7 @@ resource "aws_instance" "my-app" {
     }
 }
 
-resource "aws_instance" "my-app" {
+resource "aws_instance" "my-app2" {
     ami                         = "ami-0cbec04a61be382d9"
     availability_zone           = "ap-northeast-2c"
     ebs_optimized               = false
