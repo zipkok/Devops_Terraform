@@ -16,7 +16,7 @@ resource "aws_instance" "my-app1" {
     delete_on_termination = true
   }
 
-  tags {
+  tags = {
     Name = "my-app1"
   }
 }
@@ -38,7 +38,7 @@ resource "aws_instance" "my-app2" {
     delete_on_termination = true
   }
 
-  tags {
+  tags = {
     Name = "my-app2"
   }
 }
@@ -53,7 +53,7 @@ resource "aws_alb" "external-web-lb" {
 
   enable_deletion_protection = false
 
-  tags {
+  tags = {
     ELB  = "external"
     Name = "external-web-lb"
   }
@@ -68,7 +68,7 @@ resource "aws_alb" "internals-web-lb" {
 
   enable_deletion_protection = false
 
-  tags {
+  tags = {
     ELB  = "Internal"
     Name = "internals-web-lb"
   }

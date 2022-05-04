@@ -20,7 +20,7 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_db_sg" {
     self            = false
   }
 
-  tags {
+  tags = {
     Creator = "Woobeom"
     Name    = "blog_db_sg"
   }
@@ -64,7 +64,7 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_back_sg" {
     self            = false
   }
 
-  tags {
+  tags = {
     Name    = "blog_back_sg"
     Creator = "Woobeom"
   }
@@ -92,7 +92,7 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_front_sg" {
     self            = false
   }
 
-  tags {
+  tags = {
     Creator = "Woobeom"
     Name    = "blog_front_sg"
   }
