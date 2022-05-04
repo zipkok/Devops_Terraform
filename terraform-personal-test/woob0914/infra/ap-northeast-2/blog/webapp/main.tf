@@ -17,7 +17,7 @@ resource "aws_instance" "my-app1" {
   }
 
   tags {
-    "Name" = "my-app"
+    Name = "my-app1"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_instance" "my-app2" {
   }
 
   tags {
-    Name = "my-app"
+    Name = "my-app2"
   }
 }
 
