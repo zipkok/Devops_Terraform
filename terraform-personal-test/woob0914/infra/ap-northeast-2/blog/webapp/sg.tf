@@ -65,8 +65,8 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_back_sg" {
     }
 
     tags {
-        "Name" = "blog_back_sg"
-        "Creator" = "Woobeom"
+        Name = "blog_back_sg"
+        Creator = "Woobeom"
     }
 }
 
@@ -93,8 +93,8 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_front_sg" {
     }
 
     tags {
-        "Creator" = "Woobeom"
-        "Name" = "blog_front_sg"
+        Creator = "Woobeom"
+        Name = "blog_front_sg"
     }
 }
 
