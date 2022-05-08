@@ -11,6 +11,10 @@ data "aws_instance" "ec2_instance_info" {
   instance_tags = {
     "Service" = "media"
   }
+  filter = {
+    name = "State"
+    values = ["running"]
+  }
   // filter {
   //   name   = "tag:Service"
   //   values = ["media"]
