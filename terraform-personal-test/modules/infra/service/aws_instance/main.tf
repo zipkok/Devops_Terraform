@@ -7,7 +7,8 @@ resource "aws_instance" "mdu_instanceTemplate" {
   key_name                    = var.ec2_instance_info.key_name
   associate_public_ip_address = true
 
-  subnet_id = var.vpc_ec2_subnet_id
+  // subnet_id = var.vpc_ec2_subnet_id
+  subnet_id = element(var.vpc_ec2_subnet_id, length(var.ec2_instance_name) % 2) 
 
   user_data = <<-EOF
             #!/bin/bash

@@ -30,7 +30,8 @@ variable "ec2_instance_security_group" {
 }
 
 variable "vpc_ec2_subnet_id" {
-  type = string
+  // type = string
+  type = list
 }
 
 // Creator = "woobeom"

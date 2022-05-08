@@ -21,7 +21,7 @@ module "blog-webapp" {
 
   ec2_instance_security_group = ["sg-0fa0d3359fec65113", "sg-084a08cc5928568e8"]
 
-  vpc_ec2_subnet_id = "subnet-095041c85bc79d384"
+  vpc_ec2_subnet_id = ["subnet-095041c85bc79d384", "subnet-05a0afbf6beb61357"]
 
   ec2_instance_tags = {
     creator   = "Woobeom"
