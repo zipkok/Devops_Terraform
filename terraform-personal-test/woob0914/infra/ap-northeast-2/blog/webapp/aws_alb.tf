@@ -86,7 +86,7 @@ resource "aws_lb_listener_rule" "rsc_blog_alb_listener_rule" {
 
 resource "aws_lb_target_group_attachment" "rsc_blog_alb_target_group_attachment" {
   target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
-  target_id        = output.aws_instance_id
+  target_id        = outputs.aws_instance_id
   port             = 80
   #target_id        = aws_instance.web.id
 }
