@@ -4,18 +4,19 @@ module "blog-webapp" {
   ec2_instance_info = {
     ami           = "ami-0cbec04a61be382d9"
     instance_type = "t2.micro"
+    key_name      = "woob0914"
   }
 
   ec2_root_volume = {
     volume_size           = 10
     delete_on_termination = true
-    volume_type           = "gp2"
+    volume_type           = "gp3"
   }
 
   ec2_data_volume = {
     volume_size           = 10
     delete_on_termination = true
-    volume_type           = "gp2"
+    volume_type           = "gp3"
   }
 
   ec2_instance_security_group = ["sg-0fa0d3359fec65113", "sg-084a08cc5928568e8"]
@@ -23,10 +24,10 @@ module "blog-webapp" {
   vpc_ec2_subnet_id = "subnet-095041c85bc79d384"
 
   ec2_instance_tags = {
-    creator = "Woobeom"
-    team    = "플랫폼서비스운영팀"
-    project = "rx"
-    service = "media"
+    creator   = "Woobeom"
+    team      = "플랫폼서비스운영팀"
+    project   = "rx"
+    service   = "media"
     terraform = "true"
   }
 }
