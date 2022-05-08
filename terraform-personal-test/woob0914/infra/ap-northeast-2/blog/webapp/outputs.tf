@@ -1,4 +1,4 @@
-// output "aws_instance_id" {
-//     description = "Instance ID"
-//     value = module.mdu_instanceTemplate.blog-webapp.id
-// }
+output "aws_instance_id" {
+    description = "Instance ID"
+    value = module.blog-webapp.id
+}
