@@ -11,6 +11,7 @@ data "aws_instance" "aws_instance_id" {
   filter {
     name   = "service"
     values = ["media"]
+  }
 } 
 
 output "test" {
