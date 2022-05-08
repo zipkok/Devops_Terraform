@@ -20,13 +20,14 @@ module "blog-webapp" {
 
   ec2_instance_security_group = ["sg-0fa0d3359fec65113", "sg-084a08cc5928568e8"]
 
-  vpc_ec2_subnet_id = "subnet-0bb6b78a4fb764f01"
+  vpc_ec2_subnet_id = "subnet-095041c85bc79d384"
 
   ec2_instance_tags = {
     creator = "Woobeom"
     team    = "플랫폼서비스운영팀"
     project = "rx"
     service = "media"
+    terraform = "true"
   }
 }
 
