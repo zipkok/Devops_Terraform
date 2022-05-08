@@ -4,5 +4,5 @@
 // }
 
 output "aws_instance_id" {
-  value = [ for vpc in module.blog-webapp.oup_aws_instance_id.* : vpc.id ]
+  value = [ for vpc in module.blog-webapp.oup_aws_instance_id.* : vpc ]
 }
