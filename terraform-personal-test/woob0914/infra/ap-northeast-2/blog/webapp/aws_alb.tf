@@ -89,7 +89,6 @@ resource "aws_lb_target_group_attachment" "rsc_blog_alb_target_group_attachment"
   target_id        = output.aws_instance_id
   port             = 80
   #target_id        = aws_instance.web.id
-
 }
 
 
