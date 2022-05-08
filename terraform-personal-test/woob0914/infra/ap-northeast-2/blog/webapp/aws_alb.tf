@@ -35,15 +35,15 @@ resource "aws_lb_listener" "rsc_blog_alb_listener" {
   protocol          = "HTTP"
 
   # 기본 값으로 단순한 404 페이지 오류를 반환합니다.
-  default_action {
-    type = "fixed-response"
+//   default_action {
+//     type = "fixed-response"
 
-    fixed_response {
-      content_type = "text/plain"
-      message_body = "404: page not found"
-      status_code  = 404
-    }
-  }
+//     fixed_response {
+//       content_type = "text/plain"
+//       message_body = "404: page not found"
+//       status_code  = 404
+//     }
+//   }
 }
 
 
