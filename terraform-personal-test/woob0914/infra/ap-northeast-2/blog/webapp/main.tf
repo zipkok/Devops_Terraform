@@ -1,6 +1,6 @@
 module "blog-webapp" {
   source            = "../../../../../modules/infra/service/aws_instance"
-  ec2_instance_name = ["webapp1", "webapp2", "webapp3"]
+  ec2_instance_name = ["webapp1", "webapp2", "webapp3", "webapp4", "webapp5"]
   ec2_instance_info = {
     ami           = "ami-0cbec04a61be382d9"
     instance_type = "t2.micro"
