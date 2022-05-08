@@ -3,6 +3,6 @@ output "aws_instance_id" {
     value = module.blog-webapp.oup_aws_instance_id[0]
 }
 
-// output "aws_instance_id" {
-//   value = [ for vpc in module.blog-webapp.oup_aws_instance_id[*] : vpc ]
-// }
+output "aws_instance_id" {
+  value = [ for hostname in module.blog-webapp.oup_aws_instance_id[0] : hostname.id ]
+}
