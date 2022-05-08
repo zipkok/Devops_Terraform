@@ -4,7 +4,7 @@ resource "aws_security_group" "rsc_elb_any_80" {
   ingress {
     from_port   = 80
     to_port     = 80
-    protocol    = "-1"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
