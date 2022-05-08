@@ -25,6 +25,7 @@ resource "aws_instance" "mdu_instanceTemplate" {
   }
 
   ebs_block_device {
+    device_name           = "/dev/sdb"
     volume_size           = var.ec2_data_volume.volume_size
     delete_on_termination = var.ec2_data_volume.delete_on_termination
     volume_type           = var.ec2_data_volume.volume_type
