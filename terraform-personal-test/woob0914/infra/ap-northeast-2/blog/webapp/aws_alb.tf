@@ -1,5 +1,5 @@
 resource "aws_security_group" "rsc_elb_any_80" {
-  name = "sg-${var.alb_name}"
+  name = "${var.alb_name}"
 
   ingress {
     from_port   = 80
