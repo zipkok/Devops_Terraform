@@ -11,11 +11,12 @@ resource "aws_instance" "mdu_instanceTemplate" {
             EOF
 
   tags = {
-    Name    = each.value
-    Creator = var.ec2_instance_tags.creator
-    Team    = var.ec2_instance_tags.team
-    Project = var.ec2_instance_tags.project
-    Service = var.ec2_instance_tags.service
+    Name        = each.value
+    Creator     = var.ec2_instance_tags.creator
+    Team        = var.ec2_instance_tags.team
+    Project     = var.ec2_instance_tags.project
+    Service     = var.ec2_instance_tags.service
+    UseTerraform = "true"
   }
 
   root_block_device {
