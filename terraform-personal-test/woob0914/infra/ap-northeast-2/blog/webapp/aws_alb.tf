@@ -11,7 +11,7 @@ resource "aws_security_group" "rsc_elb_any_80" {
   egress {
     from_port   = 1025
     to_port     = 65535
-    protocol    = "-1"
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
