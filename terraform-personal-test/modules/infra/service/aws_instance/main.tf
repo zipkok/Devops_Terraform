@@ -10,7 +10,7 @@ resource "aws_instance" "mdu_instanceTemplate" {
   // subnet_id = var.vpc_ec2_subnet_id
   // subnet_id = element(var.vpc_ec2_subnet_id, length(var.ec2_instance_name) % 2) 
   // subnet_id = element(var.vpc_ec2_subnet_id, (length(var.vpc_ec2_subnet_id) - index(var.ec2_instance_name, each.value) % 2))
-  subnet_id = element(var.vpc_ec2_subnet_id, tonumber(substr(each.value, 0, 12)) % 2)
+  subnet_id = element(var.vpc_ec2_subnet_id, tonumber(substr(each.value, 14, 14)) % 2)
 
   user_data = <<-EOF
             #!/bin/bash
