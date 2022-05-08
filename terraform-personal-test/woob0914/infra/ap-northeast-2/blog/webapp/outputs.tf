@@ -1,5 +1,5 @@
 output "aws_instance_id" {
     description = "Instance ID"
-    value = module.aws_instance.blog-webapp.id
+    value = module.mdu_instanceTemplate.blog-webapp.id
 
 }
