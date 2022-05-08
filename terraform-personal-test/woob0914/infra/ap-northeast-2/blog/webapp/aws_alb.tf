@@ -61,7 +61,7 @@ resource "aws_lb_target_group" "rsc_blog_alb_target_group" {
     matcher             = "200"
     interval            = 5
     timeout             = 2
-    healthy_threshold   = 1
+    healthy_threshold   = 2
     unhealthy_threshold = 2
   }
 }
