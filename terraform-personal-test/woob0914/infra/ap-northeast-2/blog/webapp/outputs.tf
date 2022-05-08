@@ -22,5 +22,5 @@ data "aws_instance" "ec2_instance_info" {
 }
 
 output "test" {
-  value = data.aws_instance.ec2_instance_info.id
+  value = data.aws_instance.ec2_instance_info.*.id
 }
