@@ -18,5 +18,5 @@ data "aws_instance" "aws_instance_id" {
 }
 
 output "test" {
-  value = data.aws_instance.aws_instance_id
+  value = data.aws_instance.aws_instance_id.id
 }
