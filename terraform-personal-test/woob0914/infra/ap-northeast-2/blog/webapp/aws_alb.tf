@@ -59,9 +59,9 @@ resource "aws_lb_target_group" "rsc_blog_alb_target_group" {
     path                = "/"
     protocol            = "HTTP"
     matcher             = "200"
-    interval            = 15
-    timeout             = 3
-    healthy_threshold   = 2
+    interval            = 5
+    timeout             = 2
+    healthy_threshold   = 1
     unhealthy_threshold = 2
   }
 }
