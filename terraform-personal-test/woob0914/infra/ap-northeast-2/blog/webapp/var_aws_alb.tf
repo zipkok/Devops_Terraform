@@ -1,4 +1,4 @@
 variable "alb_name" {
   type    = string
-  default = "elb_any_80"
+  default = "elb-any-80"
 }
