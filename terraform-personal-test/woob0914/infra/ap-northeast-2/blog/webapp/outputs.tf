@@ -9,7 +9,7 @@ output "aws_instance_id" {
 
 data "aws_instance" "aws_instance_id" {
   filter {
-    name   = "service"
+    name   = "Service"
     values = ["media"]
   }
 } 
