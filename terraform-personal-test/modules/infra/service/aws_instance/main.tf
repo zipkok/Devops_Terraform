@@ -3,9 +3,9 @@ resource "aws_instance" "mdu_instanceTemplate" {
 
   ami                         = var.ec2_instance_info.ami
   instance_type               = var.ec2_instance_info.instance_type
-  vpc_security_group_ids      = var.ec2_instance_security_group
   key_name                    = var.ec2_instance_info.key_name
-  associate_public_ip_address = true
+  associate_public_ip_address = var.ec2_instance_info.associate_public_ip_address
+  vpc_security_group_ids      = var.ec2_instance_security_group
 
   // subnet_id = var.vpc_ec2_subnet_id
   // subnet_id = element(var.vpc_ec2_subnet_id, length(var.ec2_instance_name) % 2) 

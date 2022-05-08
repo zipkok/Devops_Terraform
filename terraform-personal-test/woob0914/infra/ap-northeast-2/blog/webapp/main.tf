@@ -6,9 +6,10 @@ module "blog-webapp" {
   vpc_ec2_subnet_id           = ["subnet-095041c85bc79d384", "subnet-05a0afbf6beb61357"]
 
   ec2_instance_info = {
-    ami           = "ami-0cbec04a61be382d9"
-    instance_type = "t2.micro"
-    key_name      = "woob0914"
+    ami                         = "ami-0cbec04a61be382d9"
+    instance_type               = "t2.micro"
+    key_name                    = "woob0914"
+    associate_public_ip_address = true
   }
 
   ec2_root_volume = {

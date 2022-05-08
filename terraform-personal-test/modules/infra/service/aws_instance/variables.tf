@@ -1,9 +1,10 @@
 # New Config
 variable "ec2_instance_info" {
   type = object({
-    ami           = string
-    instance_type = string
-    key_name      = string
+    ami                         = string
+    instance_type               = string
+    key_name                    = string
+    associate_public_ip_address = bool
   })
 }
 
@@ -17,6 +18,7 @@ variable "ec2_root_volume" {
     volume_type           = string
   })
 }
+
 variable "ec2_data_volume" {
   type = object({
     volume_size           = number
@@ -30,7 +32,6 @@ variable "ec2_instance_security_group" {
 }
 
 variable "vpc_ec2_subnet_id" {
-  // type = string
   type = list
 }
 
