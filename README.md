@@ -2,4 +2,5 @@
 - data -> dta_
 - Variable -> var_
 - output -> oup_
-- module -> mdu
+- module -> mdu_
+- resource -> rsc_
