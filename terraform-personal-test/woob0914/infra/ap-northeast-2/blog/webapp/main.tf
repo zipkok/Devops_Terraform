@@ -1,7 +1,7 @@
 // subnet을 loop돌리니까, ec2_instance_name이 영향 받음. 서로 각자 loop가 실행됨..
 module "blog-webapp" {
   source                      = "../../../../../modules/infra/service/aws_instance"
-  ec2_instance_name           = ["wakrl-rxmda001", "wakrl-rxmda002", "wakrl-rxmda003", "wakrl-rxmda004", "wakrl-rxmda005"]
+  ec2_instance_name           = ["wakrl-rxmda001", "wakrl-rxmda002", "wakrl-rxmda004", "wakrl-rxmda005"]
   ec2_instance_security_group = ["sg-0fa0d3359fec65113", "sg-084a08cc5928568e8"]
   vpc_ec2_subnet_id           = ["subnet-095041c85bc79d384", "subnet-05a0afbf6beb61357"]
 
