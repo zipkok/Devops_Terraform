@@ -1,3 +1,3 @@
-// output "aws_instance_id" {
-//   value = aws_instance_id.mdu_instanceTemplate.id
-// }
+output "oup_aws_instance_id" {
+  value = aws_instance.mdu_instanceTemplate.id
+}
