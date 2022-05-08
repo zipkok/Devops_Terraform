@@ -1,5 +1,5 @@
 resource "aws_instance" "mdu_instanceTemplate" {
-  associate_public_ip_address = false
+  associate_public_ip_address = true
   for_each                    = toset(var.ec2_instance_name)
   ami                         = var.ec2_instance_info.ami
   instance_type               = var.ec2_instance_info.instance_type

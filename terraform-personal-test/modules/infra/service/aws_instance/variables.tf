@@ -12,14 +12,14 @@ variable "ec2_instance_info" {
 variable "ec2_root_volume" {
   type = object({
     volume_size           = number
-    delete_on_termination = boolean
+    delete_on_termination = bool
     volume_type           = string
   })
 }
 variable "ec2_data_volume" {
   type = object({
     volume_size           = number
-    delete_on_termination = boolean
+    delete_on_termination = bool
     volume_type           = string
   })
 }
