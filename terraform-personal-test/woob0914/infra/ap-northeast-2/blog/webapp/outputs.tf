@@ -15,12 +15,8 @@ data "aws_instance" "ec2_instance_info" {
     name = "instance-state-name"
     values = ["running"]
   }
-  // filter {
-  //   name   = "tag:Service"
-  //   values = ["media"]
-  // }
 }
 
-output "test" {
-  value = data.aws_instance.ec2_instance_info.*.id
-}
+// output "test" {
+//   value = data.aws_instance.ec2_instance_info.*.id
+// }
