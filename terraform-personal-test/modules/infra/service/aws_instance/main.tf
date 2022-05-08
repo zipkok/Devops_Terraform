@@ -4,7 +4,7 @@ resource "aws_instance" "mdu_instanceTemplate" {
   ami                         = var.ec2_instance_info.ami
   instance_type               = var.ec2_instance_info.instance_type
   vpc_security_group_ids      = var.ec2_instance_security_group
-  subnet_id                   = var.subnet_id
+  subnet_id                   = var.vpc_ec2_subnet_id
   user_data                   = <<-EOF
             #!/bin/bash
             hostnamectl set-hostname ${each.value}
@@ -19,9 +19,9 @@ resource "aws_instance" "mdu_instanceTemplate" {
   }
 
   root_block_device {
-    volume_size           = var.ec2_instance_volume.volume_size
-    delete_on_termination = var.ec2_instance_volume.delete_on_termination
-    volume_type           = var.ec2_instance_volume.volume_type
+    volume_size           = var.ec2_root_volume.volume_size
+    delete_on_termination = var.ec2_root_volume.delete_on_termination
+    volume_type           = var.ec2_root_volume.volume_type
   }
 
   ebs_block_device {
