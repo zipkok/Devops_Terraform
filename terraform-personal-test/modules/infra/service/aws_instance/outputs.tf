@@ -1,3 +1,3 @@
-output "oup_aws_instance_id" {
+output "oup_aws_instance" {
   value = aws_instance.mdu_instanceTemplate[*]
 }
