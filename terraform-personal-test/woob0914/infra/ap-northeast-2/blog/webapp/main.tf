@@ -23,10 +23,10 @@ module "blog-webapp" {
   vpc_ec2_subnet_id = "subnet-0bb6b78a4fb764f01"
 
   ec2_instance_tags = {
-    Creator = "Woobeom"
-    Team    = "플랫폼서비스운영팀"
-    Project = "rx"
-    Service = "media"
+    creator = "Woobeom"
+    team    = "플랫폼서비스운영팀"
+    project = "rx"
+    service = "media"
   }
 }
 
