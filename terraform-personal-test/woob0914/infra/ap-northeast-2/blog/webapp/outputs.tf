@@ -9,7 +9,7 @@ output "aws_instance_id" {
 
 data "aws_instance" "ec2_instance_info" {
   instance_tags = {
-    Name   = "woobt-tfinf001"
+    Service = "media"
   }
   // filter {
   //   name   = "tag:Service"
