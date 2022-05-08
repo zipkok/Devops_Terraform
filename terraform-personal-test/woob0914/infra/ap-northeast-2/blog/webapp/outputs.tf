@@ -12,7 +12,7 @@ data "aws_instance" "ec2_instance_info" {
     "Service" = "media"
   }
   filter {
-    name = "State"
+    name = "instance-state-name"
     values = ["running"]
   }
   // filter {
