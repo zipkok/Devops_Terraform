@@ -8,11 +8,18 @@ output "aws_instance_id" {
 }
 
 data "aws_instance" "aws_instance_id" {
-  filter {
-    name   = "tag:Service"
-    values = ["media"]
+  instance_tags = {
+    creator   = "Woobeom"
+    team      = "플랫폼서비스운영팀"
+    project   = "rx"
+    service   = "media"
+    terraform = "true"
   }
-} 
+  // filter {
+  //   name   = "tag:Service"
+  //   values = ["media"]
+  // }
+}
 
 output "test" {
   value = tolist(data.aws_instance.aws_instance_id)
