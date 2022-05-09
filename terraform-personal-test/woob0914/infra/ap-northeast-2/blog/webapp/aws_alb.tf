@@ -84,11 +84,12 @@ resource "aws_lb_listener_rule" "rsc_blog_alb_listener_rule" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "rsc_blog_alb_target_group_attachment" {
-  target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
-  target_id        = "i-06bb987eefc57ef10"
-  port             = 80
-}
+// resource "aws_lb_target_group_attachment" "rsc_blog_alb_target_group_attachment" {
+//   count            = length([for hostname in module.blog-webapp.oup_aws_instance[0] : hostname.id])
+//   target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
+//   target_id        = "i-06bb987eefc57ef10"
+//   port             = 80
+// }
 
 
 
