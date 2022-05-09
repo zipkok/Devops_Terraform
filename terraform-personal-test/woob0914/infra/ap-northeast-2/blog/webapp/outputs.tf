@@ -15,7 +15,7 @@ data "aws_instance" "ec2_instance_info" {
 
   filter {
     name = "instance-state-name"
-    values = "running"
+    values = ["running"]
   }
 }
 
