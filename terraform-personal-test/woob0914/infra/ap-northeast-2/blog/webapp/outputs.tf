@@ -21,6 +21,10 @@ output "instance_id" {
   value       = data.terraform_remote_state.instance_id.outputs.aws_instance_id
   description = "The domain name of the load balancer"
 }
+output "instance_id_1" {
+  value       = data.terraform_remote_state.instance_id.outputs.aws_instance_id[1]
+  description = "The domain name of the load balancer"
+}
 
 
 // data "aws_instance" "ec2_instance_info" {
