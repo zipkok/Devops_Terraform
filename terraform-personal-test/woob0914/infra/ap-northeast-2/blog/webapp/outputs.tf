@@ -11,7 +11,7 @@ data "terraform_remote_state" "instance_id" {
   backend = "s3"
 
   config = {
-    bucket = "woobeom-up-and-running-state"
+    bucket = "woobeom-terraform-bucket"
     key    = "woob0914/infra/ap-northeast-2/blog/webapp"
     region = "ap-northeast-2"
   }
