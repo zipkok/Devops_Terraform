@@ -12,7 +12,7 @@ resource "aws_lb" "rsc_blog_inalb" {
 # =========================================================
 # Step 2/4 of AWS ELB (Listener)
 resource "aws_lb_listener" "rsc_blog_inalb_listener" {
-  load_balancer_arn = aws_lb.rsc_blog_alb.arn
+  load_balancer_arn = aws_lb.rsc_blog_inalb.arn
   port              = 80
   protocol          = "HTTP"
 
