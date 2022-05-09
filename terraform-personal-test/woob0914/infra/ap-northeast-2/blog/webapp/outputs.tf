@@ -7,22 +7,17 @@ output "aws_instance_id" {
   value = [for hostname in module.blog-webapp.oup_aws_instance[0] : hostname.id]
 }
 
-output "aws_instance_id_ori" {
-  value = module.blog-webapp.oup_aws_instance[0].id
+
+data "aws_instance" "ec2_instance_info" {
+  instance_tags = {
+    "Service" = "media"
+  }
+
+  filter {
+    name = "instance-state-name"
+    values = "running"
+  }
 }
-
-
-
-// data "aws_instance" "ec2_instance_info" {
-//   instance_tags = {
-//     "Service" = "media"
-//   }
-
-//   filter {
-//     name = "instance-state-name"
-//     values = "running"
-//   }
-// }
 
 // output "test" {
 //   value = data.aws_instance.ec2_instance_info.*.id
