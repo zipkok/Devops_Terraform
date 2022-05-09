@@ -32,7 +32,7 @@ resource "aws_lb_listener" "rsc_blog_inalb_listener" {
 # =========================================================
 # Step 3/4 of AWS ELB (Target_Group)
 resource "aws_lb_target_group" "rsc_blog_inalb_target_group" {
-  name     = var.alb_name
+  name     = "${var.alb_name}-in"
   port     = 80
   protocol = "HTTP"
   vpc_id   = "vpc-0546f3f1c47f1f95e"
@@ -51,7 +51,7 @@ resource "aws_lb_target_group" "rsc_blog_inalb_target_group" {
 # =========================================================
 # Step 4/4 of AWS ELB (Listener_rule)
 resource "aws_lb_listener_rule" "rsc_blog_inalb_listener_rule" {
-  listener_arn = aws_lb_listener.rsc_blog_alb_listener.arn
+  listener_arn = aws_lb_listener.rsc_blog_inalb_listener.arn
   priority     = 100
 
   condition {
@@ -62,13 +62,13 @@ resource "aws_lb_listener_rule" "rsc_blog_inalb_listener_rule" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
+    target_group_arn = aws_lb_target_group.rsc_blog_inalb_target_group.arn
   }
 }
 
 resource "aws_lb_target_group_attachment" "rsc_blog_inalb_target_group_attachment" {
   count            = length(data.terraform_remote_state.instance_id.outputs.aws_instance_id)
-  target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
+  target_group_arn = aws_lb_target_group.rsc_blog_inalb_target_group.arn
   target_id        = data.terraform_remote_state.instance_id.outputs.aws_instance_id[count.index]
   port             = 80
 }
