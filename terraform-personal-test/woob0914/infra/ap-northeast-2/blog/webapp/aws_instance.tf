@@ -9,7 +9,7 @@ module "blog-webapp" {
     ami                         = "ami-0cbec04a61be382d9"
     instance_type               = "t2.micro"
     key_name                    = "woob0914"
-    associate_public_ip_address = false
+    associate_public_ip_address = true
   }
 
   ec2_root_volume = {
