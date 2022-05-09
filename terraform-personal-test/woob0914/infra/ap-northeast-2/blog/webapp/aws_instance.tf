@@ -33,3 +33,15 @@ module "blog-webapp" {
   }
 }
 
+resource "aws_eip" "lb" {
+  count    = length(data.terraform_remote_state.instance_id.outputs.aws_instance_id)
+  instance = data.terraform_remote_state.instance_id.outputs.aws_instance_id[count.index]
+  vpc      = true
+  tags = {
+    creator   = "Woobeom"
+    team      = "플랫폼서비스운영팀"
+    project   = "rx"
+    service   = "media"
+    terraform = "true"
+  }
+}
