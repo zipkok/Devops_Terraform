@@ -40,5 +40,6 @@ data "aws_iam_policy_document" "example" {
     actions   = ["s3:ListBucket"]
     resources = ["arn:aws:s3:::woobeom-test-bucket/*", "arn:aws:s3:::woobeom-test-bucket"]
     effect    = "Allow"
-  }
+  },
+  
 }
