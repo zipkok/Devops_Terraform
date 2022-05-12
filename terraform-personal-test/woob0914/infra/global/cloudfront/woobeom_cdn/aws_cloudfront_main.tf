@@ -14,42 +14,9 @@ resource "aws_s3_bucket" "d" {
   }
 }
 
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.bucket.id
-  policy = data.aws_iam_policy_document.example.json
-}
-
-data "aws_iam_policy_document" "example" {
-  statement =
-  [
-    {
-      principals {
-        type        = "*"
-        identifiers = ["*"]
-      }
-      sid       = "UniqueSidOne"
-      actions   = ["s3:ListBucket"]
-      resources = ["arn:aws:s3:::woobeom-mybuckets/*", "arn:aws:s3:::woobeom-mybuckets"]
-      effect    = "Allow"
-    },
-    {
-      principals = "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E3HGPRS0XYSUR5"
-      sid        = "UniqueSidOne"
-      actions    = ["s3:GetObject"]
-      resources  = ["arn:aws:s3:::woobeom-mybuckets/*"]
-      effect     = "Allow"
-    }
-  ]
-}
-
-
 resource "aws_s3_bucket_acl" "b_acl" {
   bucket = aws_s3_bucket.c.id
   acl    = "private"
-}
-
-locals {
-  s3_origin_id = "woobeom-mybuckets"
 }
 
 resource "aws_cloudfront_origin_access_identity" "example" {
