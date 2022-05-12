@@ -14,9 +14,23 @@ resource "aws_s3_bucket" "d" {
   }
 }
 
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.bucket.id
+  policy = data.aws_iam_policy_document.example.json
+}
+
+data "aws_iam_policy_document" "example" {
+
+}
+
+
 resource "aws_s3_bucket_acl" "b_acl" {
   bucket = aws_s3_bucket.c.id
   acl    = "private"
+}
+
+locals {
+  s3_origin_id = "woobeom-mybuckets"
 }
 
 resource "aws_cloudfront_origin_access_identity" "example" {
@@ -33,8 +47,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
-  enabled             = true
-  is_ipv6_enabled     = true
+  enabled             = false
+  is_ipv6_enabled     = false
   comment             = "Some comment"
   default_root_object = "index.html"
 
