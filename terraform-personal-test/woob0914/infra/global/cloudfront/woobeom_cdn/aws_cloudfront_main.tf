@@ -1,69 +1,34 @@
-resource "aws_s3_bucket" "c" {
-  bucket = "woobeom-mybuckets"
-
-  tags = {
-    Name = "woobeom My bucket"
-  }
-}
-
-resource "aws_s3_bucket" "d" {
-  bucket = "woobeom-mylogs-mybuckets"
-
-  tags = {
-    Name = "woobeom mylogsss My bucket"
-  }
-}
-
-resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
-  bucket = aws_s3_bucket.bucket.id
-  policy = data.aws_iam_policy_document.example.json
-}
-
-data "aws_iam_policy_document" "example" {
-
-}
-
-
-resource "aws_s3_bucket_acl" "b_acl" {
-  bucket = aws_s3_bucket.c.id
-  acl    = "private"
-}
-
-locals {
-  s3_origin_id = "woobeom-mybuckets"
-}
-
 resource "aws_cloudfront_origin_access_identity" "example" {
-  comment = "Some comment"
+  comment = "blog-static.woobeom.com"
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = aws_s3_bucket.c.bucket_regional_domain_name
-    origin_id   = local.s3_origin_id
+    domain_name = data.terraform_remote_state.static_bucket_name.outputs.static-bucket-domain-name
+    origin_id   = data.terraform_remote_state.static_bucket_name.outputs.static-bucket-name
 
     s3_origin_config {
       origin_access_identity = "origin-access-identity/cloudfront/${aws_cloudfront_origin_access_identity.example.id}"
     }
   }
 
-  enabled             = false
+  enabled             = true
   is_ipv6_enabled     = false
   comment             = "Some comment"
   default_root_object = "index.html"
 
-  logging_config {
+  /* logging_config {
     include_cookies = false
     bucket          = "woobeom-mylogs-mybuckets.s3.amazonaws.com"
     prefix          = "mylogsss/"
-  }
+  } */
 
   // aliases = ["mysite.woobeom.com"]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
+    target_origin_id = data.terraform_remote_state.static_bucket_name.outputs.static-bucket-name
 
     forwarded_values {
       query_string = false
@@ -84,7 +49,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     path_pattern     = "/content/immutable/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
-    target_origin_id = local.s3_origin_id
+    target_origin_id = data.terraform_remote_state.static_bucket_name.outputs.static-bucket-name
 
     forwarded_values {
       query_string = false
@@ -107,7 +72,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     path_pattern     = "/content/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = local.s3_origin_id
+    target_origin_id = data.terraform_remote_state.static_bucket_name.outputs.static-bucket-name
 
     forwarded_values {
       query_string = false

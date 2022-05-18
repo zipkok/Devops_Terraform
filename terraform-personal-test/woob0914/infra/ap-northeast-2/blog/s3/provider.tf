@@ -6,7 +6,7 @@ terraform {
   backend "s3" {
     # 이전에 생성한 Bucket 이름으로 변경
     bucket = "woobeom-terraform-bucket"
-    key    = "woob0914/infra/ap-northeast-2/mini/MediaSvc/terraform.tfstate"
+    key    = "woob0914/infra/ap-northeast-2/blog/s3/terraform.tfstate"
     region = "ap-northeast-2"
 
     # 이전에 생성한 DynamoDB 테이블 이름으로 변경
@@ -14,5 +14,3 @@ terraform {
     encrypt        = true
   }
 }
-
-
