@@ -7,5 +7,5 @@ variable "common_security_group_tags" {
 }
 
 variable "security_group_config" {
-  type = map(any)
+  type = list(any)
 }

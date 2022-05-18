@@ -4,7 +4,7 @@ variable "vpc_id" {
 }
 
 variable "security_group_config" {
-  type = map(any)
+  type = list(any)
 }
 
 variable "security_group_tags" {
