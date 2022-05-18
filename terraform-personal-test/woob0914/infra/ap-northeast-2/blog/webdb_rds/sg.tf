@@ -11,7 +11,6 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_db_sg" {
         self            = false
     }
 
-
     egress {
         from_port       = 1025
         to_port         = 65535
@@ -20,7 +19,7 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_db_sg" {
         self            = false
     }
 
-    tags {
+    tags = {
         "Creator" = "Woobeom"
         "Name" = "blog_db_sg"
     }
@@ -64,9 +63,9 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_back_sg" {
         self            = false
     }
 
-    tags {
-        "Name" = "blog_back_sg"
-        "Creator" = "Woobeom"
+    tags = {
+        Name = "blog_back_sg"
+        Creator = "Woobeom"
     }
 }
 
@@ -92,9 +91,9 @@ resource "aws_security_group" "vpc-0546f3f1c47f1f95e-blog_front_sg" {
         self            = false
     }
 
-    tags {
-        "Creator" = "Woobeom"
-        "Name" = "blog_front_sg"
+    tags = {
+        Creator = "Woobeom"
+        Name = "blog_front_sg"
     }
 }
 
