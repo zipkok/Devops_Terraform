@@ -6,6 +6,10 @@ variable "common_security_group_tags" {
   type = map(any)
 }
 
-variable "security_group_config" {
+variable "ec2_security_group_config" {
+  type = list(any)
+}
+
+variable "alb_security_group_config" {
   type = list(any)
 }
