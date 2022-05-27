@@ -5,12 +5,10 @@ provider "aws" {
 terraform {
   backend "s3" {
     # 이전에 생성한 Bucket 이름으로 변경
-    bucket = "woobeom-terraform-bucket"
-    key    = "woob0914/infra/ap-northeast-2/blog/webapp/terraform.tfstate"
-    region = "ap-northeast-2"
-
-    # 이전에 생성한 DynamoDB 테이블 이름으로 변경
+    key            = "infra/aws/ap-northeast-2/blog/webapp_ec2_instance/terraform.tfstate"
+    bucket         = "woobeom-terraform-bucket"
     dynamodb_table = "woobeom-terraform-locks"
+    region         = "ap-northeast-2"
     encrypt        = true
   }
 }

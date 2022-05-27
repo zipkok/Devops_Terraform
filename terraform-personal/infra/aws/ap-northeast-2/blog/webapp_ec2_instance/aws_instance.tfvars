@@ -1,7 +1,8 @@
 # =================================================================================
 # Set a subnet_ids for Security Group =============================================
 # =================================================================================
-subnet_ids = ["subnet-095041c85bc79d384", "subnet-05a0afbf6beb61357"]
+subnet_ids      = ["subnet-095041c85bc79d384", "subnet-05a0afbf6beb61357"]
+security_groups = ["sg-048a4638d3132afc3", "sg-0c38c8c866f29cb68"]
 
 # =================================================================================
 # Require Tags
@@ -19,6 +20,7 @@ common_ec2_tags = {
 # Security Group Configuration ====================================================
 # =================================================================================
 ec2_name_config = {
+  count                       = 10
   ami                         = "ami-0cbec04a61be382d9"
   instance_type               = "t2.micro"
   key_name                    = "woob0914"
@@ -28,6 +30,6 @@ ec2_name_config = {
 }
 
 ec2_name_tag = [
-  "woobeom1",
-  "woobeom2"
+  "woobeom11",
+  "woobeom13",
 ]
