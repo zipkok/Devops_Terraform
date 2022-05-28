@@ -5,7 +5,7 @@ resource "aws_instance" "mdu_instanceTemplate" {
   instance_type               = var.ec2_instance_info.instance_type
   key_name                    = var.ec2_instance_info.key_name
   associate_public_ip_address = var.ec2_instance_info.associate_public_ip_address
-  vpc_security_group_ids      = var.ec2_instance_security_group
+  vpc_security_group_ids      = var.ec2_instance_security_groups
   subnet_id                   = element(var.vpc_ec2_subnet_id, tonumber(substr(each.value, -1, -1)) % 2)
   user_data                   = <<-EOF
                               #!/bin/bash
@@ -34,3 +34,10 @@ resource "aws_instance" "mdu_instanceTemplate" {
     volume_type           = var.ec2_data_volume.volume_type
   }
 }
+/* 
+resource "aws_lb_target_group_attachment" "rsc_blog_alb_target_group_attachment" {
+  count            = length(data.terraform_remote_state.instance_id.outputs.aws_instance_id)
+  target_group_arn = aws_lb_target_group.rsc_blog_alb_target_group.arn
+  target_id        = data.terraform_remote_state.instance_id.outputs.aws_instance_id[count.index]
+  port             = 80
+} */

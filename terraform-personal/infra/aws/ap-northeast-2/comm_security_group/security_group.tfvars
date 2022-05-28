@@ -15,6 +15,15 @@ common_security_group_tags = {
 # =================================================================================
 # Security Group Configuration ====================================================
 # =================================================================================
+default_security_group_config = [
+  {
+    name        = "[Default] Must to Use"
+    description = "Default Security Group(Do not Remove/Change)"
+    ingress = [],
+    egress = []
+  }
+]
+
 ec2_security_group_config = [
   {
     name        = "TEST2"
@@ -36,12 +45,6 @@ ec2_security_group_config = [
       }
     ],
     egress = []
-  },
-  {
-    name        = "TEST4"
-    description = "module4 of Blog Service"
-    ingress     = []
-    egress      = []
   },
 ]
 

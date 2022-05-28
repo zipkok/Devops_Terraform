@@ -34,3 +34,10 @@ resource "aws_instance" "mdu_instanceTemplate" {
     volume_type           = var.ec2_data_volume.volume_type
   }
 }
+
+resource "aws_eip" "lb" {
+  for_each = aws_instance.mdu_instanceTemplate
+  instance = each.value.id
+  vpc      = true
+  tags     = each.value.tags_all
+}
