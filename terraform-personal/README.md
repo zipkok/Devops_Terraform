@@ -7,7 +7,7 @@ modules
         - aws_instance_with_alb (Attach ALB to AWS Instance)
         - aws_instance_with_eip (Attach EIP to AWS Instance)
         - aws_security_group
-infra
+- infra
     - aws
         - ap-northeast-2
             - blog
