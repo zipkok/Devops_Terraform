@@ -8,7 +8,7 @@ resource "aws_route53_zone" "woodoo-com-public" {
 }
 
 data "aws_route53_zone" "woodoo-com" {
-  name = "woodoo.com"
+  name = "woosoo.com"
 }
 
 output "woodoo-com-zone-id" {
